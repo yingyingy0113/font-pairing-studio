@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useCallback, useRef } from "react";
+import { useState, useMemo, useCallback, useRef, useEffect } from "react";
 import VibePicker from "@/components/VibePicker";
 import PairingCard from "@/components/PairingCard";
 import SettingsPanel from "@/components/SettingsPanel";
@@ -17,6 +17,25 @@ export default function Home() {
   const [lineHeight, setLineHeight] = useState(1.6);
   const [isDark, setIsDark] = useState(true);
   const [query, setQuery] = useState("");
+
+  // Dynamically load fonts for ALL pairings in the current vibe (or search results)
+  useEffect(() => {
+    const pairings = VIBES[selectedVibe].pairings;
+    const families = new Set<string>();
+    pairings.forEach(p => {
+      families.add(p.heading.replace(/ /g, "+") + ":wght@300;400;600;700");
+      families.add(p.body.replace(/ /g, "+") + ":wght@300;400;600;700");
+    });
+    const url = `https://fonts.googleapis.com/css2?${[...families].map(f => `family=${f}`).join("&")}&display=swap`;
+    const id = `font-vibe-${selectedVibe}`;
+    if (!document.getElementById(id)) {
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.id = id;
+      link.href = url;
+      document.head.appendChild(link);
+    }
+  }, [selectedVibe]);
 
   // Debounce the search query so we don't recompute on every keystroke
   const debounceTimer = useRef<ReturnType<typeof setTimeout> | null>(null);

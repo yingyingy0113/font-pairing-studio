@@ -82,6 +82,21 @@ export default function PairingDetailPage() {
     return { vibeKey, vibeData, pairing: vibeData.pairings[idx], idx };
   })();
 
+  // ── Dynamically load this pairing's exact fonts ───────────────────────────
+  useEffect(() => {
+    if (!parsed) return;
+    const { pairing } = parsed;
+    const encode = (name: string) => name.replace(/ /g, "+");
+    const url = `https://fonts.googleapis.com/css2?family=${encode(pairing.heading)}:wght@300;400;600;700&family=${encode(pairing.body)}:wght@300;400;600;700&display=swap`;
+    const existing = document.querySelector(`link[data-font-pairing]`);
+    if (existing) existing.remove();
+    const link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = url;
+    link.setAttribute("data-font-pairing", "true");
+    document.head.appendChild(link);
+  }, [parsed?.pairing.heading, parsed?.pairing.body]);
+
   // ── Try-it state ──────────────────────────────────────────────────────────
   const [tryText, setTryText] = useState("");
   const textareaRef = useRef<HTMLTextAreaElement>(null);
