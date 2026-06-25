@@ -1,16 +1,19 @@
 "use client";
 
-import { FontPairing } from "@/data/pairings";
+import { Pairing } from "@/data/pairings";
 import CopyButton from "./CopyButton";
 
 interface PairingCardProps {
-  pairing: FontPairing;
+  pairing: Pairing;
   index: number;
   headingSize: number;
   bodySize: number;
   lineHeight: number;
   accent: string;
   isDark: boolean;
+  /** When set, shows a small "● VibeLabel" badge in the top-right (search mode) */
+  vibeBadge?: string;
+  vibeBadgeAccent?: string;
 }
 
 export default function PairingCard({
@@ -21,6 +24,8 @@ export default function PairingCard({
   lineHeight,
   accent,
   isDark,
+  vibeBadge,
+  vibeBadgeAccent,
 }: PairingCardProps) {
   const cssOutput = `:root {
   --font-heading: '${pairing.heading}', serif;
@@ -35,6 +40,12 @@ export default function PairingCard({
   const textColor = isDark ? "#f4f4f5" : "#111827";
   const bodyTextColor = isDark ? "#a1a1aa" : "#4b5563";
   const tagBg = isDark ? "#1f1f1f" : "#f3f4f6";
+  const descriptionColor = isDark ? "#71717a" : "#9ca3af";
+
+  const badgeAccent = vibeBadgeAccent ?? accent;
+
+  // Show at most 3 tags
+  const displayTags = pairing.tags.slice(0, 3);
 
   return (
     <div
@@ -45,22 +56,52 @@ export default function PairingCard({
       }}
       className="relative rounded-2xl border p-7 flex flex-col gap-5 group hover:shadow-2xl hover:-translate-y-1"
     >
-      {/* Top row: tag + featured badge */}
-      <div className="flex items-center justify-between">
+      {/* Top row: option label + vibe badge (search) or featured badge */}
+      <div className="flex items-center justify-between gap-2">
         <span
           style={{ backgroundColor: tagBg, color: mutedColor }}
-          className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full"
+          className="text-xs font-semibold uppercase tracking-widest px-3 py-1 rounded-full shrink-0"
         >
           Option {index + 1}
         </span>
-        {pairing.featured && (
-          <span
-            style={{ backgroundColor: accent + "22", color: accent, borderColor: accent + "44" }}
-            className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border"
-          >
-            ★ Featured
-          </span>
-        )}
+
+        <div className="flex items-center gap-2 flex-wrap justify-end">
+          {vibeBadge && (
+            <span
+              style={{
+                backgroundColor: badgeAccent + "22",
+                color: badgeAccent,
+                borderColor: badgeAccent + "44",
+                fontFamily: "'DM Sans', sans-serif",
+              }}
+              className="text-xs font-semibold px-2.5 py-1 rounded-full border flex items-center gap-1 whitespace-nowrap"
+            >
+              <span
+                style={{
+                  width: "6px",
+                  height: "6px",
+                  borderRadius: "50%",
+                  backgroundColor: badgeAccent,
+                  display: "inline-block",
+                }}
+              />
+              {vibeBadge}
+            </span>
+          )}
+
+          {pairing.featured && !vibeBadge && (
+            <span
+              style={{
+                backgroundColor: accent + "22",
+                color: accent,
+                borderColor: accent + "44",
+              }}
+              className="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full border"
+            >
+              ★ Featured
+            </span>
+          )}
+        </div>
       </div>
 
       {/* Heading preview */}
@@ -95,10 +136,24 @@ export default function PairingCard({
       {/* Divider */}
       <div style={{ borderColor: borderColor }} className="border-t" />
 
-      {/* Font names */}
-      <p style={{ color: mutedColor }} className="text-xs font-mono tracking-wide">
-        {pairing.heading} / {pairing.body}
-      </p>
+      {/* Font names + one-line description */}
+      <div className="flex flex-col gap-1">
+        <p style={{ color: mutedColor }} className="text-xs font-mono tracking-wide">
+          {pairing.heading} / {pairing.body}
+        </p>
+        {pairing.description && (
+          <p
+            style={{
+              color: descriptionColor,
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.75rem",
+              fontStyle: "italic",
+            }}
+          >
+            {pairing.description}
+          </p>
+        )}
+      </div>
 
       {/* CSS preview */}
       <pre
@@ -114,6 +169,25 @@ export default function PairingCard({
 
       {/* Copy button */}
       <CopyButton css={cssOutput} accent={accent} />
+
+      {/* Tag pills */}
+      {displayTags.length > 0 && (
+        <div className="flex flex-wrap gap-1.5 pt-1">
+          {displayTags.map((tag) => (
+            <span
+              key={tag}
+              style={{
+                backgroundColor: tagBg,
+                color: mutedColor,
+                fontFamily: "'DM Sans', sans-serif",
+              }}
+              className="text-xs px-2.5 py-0.5 rounded-full"
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

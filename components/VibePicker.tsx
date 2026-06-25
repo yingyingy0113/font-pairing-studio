@@ -13,7 +13,7 @@ export default function VibePicker({ selected, onChange, isDark }: VibePickerPro
     <div className="flex flex-wrap gap-2 justify-center">
       {VIBE_KEYS.map((vibe) => {
         const isActive = vibe === selected;
-        const { label, accent } = VIBES[vibe];
+        const { label, accent, emoji } = VIBES[vibe];
         return (
           <button
             key={vibe}
@@ -34,7 +34,7 @@ export default function VibePicker({ selected, onChange, isDark }: VibePickerPro
             }
             className="px-5 py-2 rounded-full border text-sm font-medium tracking-wide transition-all duration-300 hover:scale-105 cursor-pointer"
           >
-            {label}
+            {emoji} {label}
           </button>
         );
       })}
