@@ -67,6 +67,26 @@ export const VIBES: Record<Vibe, VibeData> = {
         ],
         description: "Renaissance elegance with a contemporary body",
       },
+      {
+        heading: "Merriweather",
+        body: "Inter",
+        tags: ["editorial", "digital", "crisp"],
+        keywords: [
+          "editorial", "digital", "crisp", "warm", "serif", "magazine", "readable",
+          "clean", "modern", "blog", "journalism", "web",
+        ],
+        description: "Warm serif meets crisp digital",
+      },
+      {
+        heading: "Spectral",
+        body: "Mulish",
+        tags: ["editorial", "literary", "refined"],
+        keywords: [
+          "editorial", "literary", "refined", "magazine", "elegant", "serif",
+          "book", "reading", "scholarly", "classical", "clean",
+        ],
+        description: "Literary and refined",
+      },
     ],
   },
 
@@ -106,6 +126,26 @@ export const VIBES: Record<Vibe, VibeData> = {
           "contemporary", "swiss", "product", "flat", "digital",
         ],
         description: "Versatile geometric sans for digital products",
+      },
+      {
+        heading: "DM Sans",
+        body: "DM Sans",
+        tags: ["minimal", "hierarchy", "clean"],
+        keywords: [
+          "minimal", "hierarchy", "clean", "modern", "sans-serif", "product", "ui",
+          "tech", "neutral", "swiss", "flat", "contemporary",
+        ],
+        description: "One family, pure hierarchy",
+      },
+      {
+        heading: "Manrope",
+        body: "Manrope",
+        tags: ["minimal", "geometric", "balanced"],
+        keywords: [
+          "minimal", "geometric", "balanced", "modern", "clean", "sans-serif",
+          "startup", "app", "product", "tech", "ui", "neutral",
+        ],
+        description: "Geometric and balanced",
       },
     ],
   },
@@ -147,6 +187,26 @@ export const VIBES: Record<Vibe, VibeData> = {
         ],
         description: "Script warmth paired with geometric clarity",
       },
+      {
+        heading: "Baloo 2",
+        body: "Nunito Sans",
+        tags: ["playful", "round", "energetic"],
+        keywords: [
+          "playful", "round", "energetic", "fun", "kids", "bubbly", "friendly",
+          "cheerful", "casual", "colorful", "game", "happy",
+        ],
+        description: "Round and energetic",
+      },
+      {
+        heading: "Comfortaa",
+        body: "Varela Round",
+        tags: ["playful", "soft", "approachable"],
+        keywords: [
+          "playful", "soft", "approachable", "friendly", "round", "casual",
+          "kids", "fun", "bubbly", "cheerful", "happy", "colorful",
+        ],
+        description: "Soft and approachable",
+      },
     ],
   },
 
@@ -186,6 +246,26 @@ export const VIBES: Record<Vibe, VibeData> = {
           "luxury", "bridal", "graceful", "refined", "classic",
         ],
         description: "Timeless serif romance with a modern companion",
+      },
+      {
+        heading: "Libre Baskerville",
+        body: "Crimson Pro",
+        tags: ["romantic", "classic", "serif"],
+        keywords: [
+          "romantic", "classic", "serif", "love", "elegant", "literary",
+          "wedding", "feminine", "graceful", "refined", "bridal", "delicate",
+        ],
+        description: "Classic romance in serif",
+      },
+      {
+        heading: "Sorts Mill Goudy",
+        body: "Lato",
+        tags: ["romantic", "refined", "timeless"],
+        keywords: [
+          "romantic", "refined", "timeless", "elegant", "classic", "literary",
+          "feminine", "graceful", "delicate", "wedding", "love", "bridal",
+        ],
+        description: "Refined and timeless",
       },
     ],
   },
@@ -227,6 +307,26 @@ export const VIBES: Record<Vibe, VibeData> = {
         ],
         description: "Condensed poster power meets neutral clarity",
       },
+      {
+        heading: "Oswald",
+        body: "Source Sans 3",
+        tags: ["bold", "condensed", "powerful"],
+        keywords: [
+          "bold", "condensed", "powerful", "strong", "headline", "poster", "impact",
+          "sports", "masculine", "graphic", "heavy", "advertisement",
+        ],
+        description: "Condensed power",
+      },
+      {
+        heading: "Teko",
+        body: "Hind",
+        tags: ["bold", "devanagari", "impact"],
+        keywords: [
+          "bold", "devanagari", "impact", "headline", "strong", "powerful",
+          "graphic", "poster", "heavy", "condensed", "sports", "masculine",
+        ],
+        description: "Indian-influenced bold",
+      },
     ],
   },
 
@@ -266,6 +366,26 @@ export const VIBES: Record<Vibe, VibeData> = {
           "film", "throwback", "serif", "editorial", "classic",
         ],
         description: "High-contrast serif with clean modern body",
+      },
+      {
+        heading: "Abril Fatface",
+        body: "Poppins",
+        tags: ["retro", "maximalist", "headline"],
+        keywords: [
+          "retro", "maximalist", "headline", "vintage", "bold", "nostalgic",
+          "70s", "warm", "graphic", "poster", "groovy", "classic",
+        ],
+        description: "Maximalist retro headline",
+      },
+      {
+        heading: "Alfa Slab One",
+        body: "Lora",
+        tags: ["retro", "slab", "editorial"],
+        keywords: [
+          "retro", "slab", "editorial", "heavy", "vintage", "nostalgic",
+          "serif", "warm", "analog", "throwback", "classic", "bold",
+        ],
+        description: "Heavy slab meets flowing serif",
       },
     ],
   },
@@ -310,6 +430,26 @@ export const VIBES: Record<Vibe, VibeData> = {
         ],
         description: "Small-caps grandeur with authoritative body serif",
       },
+      {
+        heading: "Playfair Display SC",
+        body: "PT Serif",
+        tags: ["newspaper", "broadsheet", "authority"],
+        keywords: [
+          "newspaper", "broadsheet", "authority", "classic", "print", "gazette",
+          "editorial", "journalism", "press", "ink", "news", "column",
+        ],
+        description: "Classic broadsheet authority",
+      },
+      {
+        heading: "Lora",
+        body: "Source Sans 3",
+        tags: ["newspaper", "modern", "editorial"],
+        keywords: [
+          "newspaper", "modern", "editorial", "journalism", "print", "news",
+          "article", "column", "broadsheet", "press", "readable", "clean",
+        ],
+        description: "Modern editorial grace",
+      },
     ],
   },
 
@@ -349,6 +489,26 @@ export const VIBES: Record<Vibe, VibeData> = {
           "antique", "manuscript", "horror", "fantasy", "literary", "occult",
         ],
         description: "Fell type irregularity with classical body",
+      },
+      {
+        heading: "Cinzel Decorative",
+        body: "IM Fell English",
+        tags: ["gothic", "ceremonial", "ancient"],
+        keywords: [
+          "gothic", "ceremonial", "ancient", "dark", "fantasy", "medieval",
+          "dramatic", "occult", "mysterious", "historical", "manuscript", "horror",
+        ],
+        description: "Ceremonial and ancient",
+      },
+      {
+        heading: "Almendra",
+        body: "Crimson Text",
+        tags: ["gothic", "fantasy", "manuscript"],
+        keywords: [
+          "gothic", "fantasy", "manuscript", "dark", "medieval", "mysterious",
+          "occult", "horror", "ancient", "blackletter", "dramatic", "historical",
+        ],
+        description: "Dark fantasy manuscript",
       },
     ],
   },
@@ -392,6 +552,26 @@ export const VIBES: Record<Vibe, VibeData> = {
           "retro", "journalist", "old machine",
         ],
         description: "Mono typewriter aesthetic with a refined serif body",
+      },
+      {
+        heading: "Courier Prime",
+        body: "EB Garamond",
+        tags: ["typewriter", "vintage", "literary"],
+        keywords: [
+          "typewriter", "vintage", "literary", "worn", "aged", "manuscript",
+          "analog", "noir", "detective", "writer", "author", "ink", "paper",
+        ],
+        description: "Vintage meets literary",
+      },
+      {
+        heading: "Inconsolata",
+        body: "Merriweather",
+        tags: ["typewriter", "mono", "warm"],
+        keywords: [
+          "typewriter", "mono", "warm", "literary", "precision", "analog",
+          "vintage", "ink", "paper", "manuscript", "writer", "noir",
+        ],
+        description: "Mono precision, warm body",
       },
     ],
   },

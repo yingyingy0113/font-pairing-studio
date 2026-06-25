@@ -151,7 +151,7 @@ export default function Home() {
                     {searchResults.length}
                   </span>{" "}
                   pairing{searchResults.length !== 1 ? "s" : ""} found for{" "}
-                  <span style={{ color: headingColor }}>"{debouncedQuery}"</span>
+                  <span style={{ color: headingColor }}>&quot;{debouncedQuery}&quot;</span>
                 </p>
               ) : (
                 <p
@@ -162,9 +162,9 @@ export default function Home() {
                   }}
                 >
                   No matches — try{" "}
-                  <span style={{ color: accentColor }}>'vintage'</span>,{" "}
-                  <span style={{ color: accentColor }}>'bold'</span>, or{" "}
-                  <span style={{ color: accentColor }}>'minimal'</span>
+                  <span style={{ color: accentColor }}>&apos;vintage&apos;</span>,{" "}
+                  <span style={{ color: accentColor }}>&apos;bold&apos;</span>, or{" "}
+                  <span style={{ color: accentColor }}>&apos;minimal&apos;</span>
                 </p>
               )}
             </div>
@@ -190,6 +190,7 @@ export default function Home() {
                     isDark={isDark}
                     vibeBadge={`${pairing.vibeEmoji} ${pairing.vibeLabel}`}
                     vibeBadgeAccent={pairing.accent}
+                    vibe={pairing.vibe}
                   />
                 ))}
               </div>
@@ -240,6 +241,7 @@ export default function Home() {
                   lineHeight={lineHeight}
                   accent={vibeData.accent}
                   isDark={isDark}
+                  vibe={selectedVibe}
                 />
               ))}
             </div>
